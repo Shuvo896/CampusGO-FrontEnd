@@ -242,6 +242,9 @@ footer {
     body{
         grid-template-columns: 1px 1fr 1px;
     }
+    main {
+        grid-template-columns:10px 1fr 10px;
+    }
     main .booking .showDate {
         
         font-size: 20px;
