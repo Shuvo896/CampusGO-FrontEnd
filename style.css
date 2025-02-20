@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+
 * {
     margin: 0;
 }
@@ -18,8 +21,8 @@ body{
     grid-template-columns: 285px 1fr 20px;
     grid-template-rows: 117px 1fr 2.5rem;
     grid-template-areas: 
-    "sidebar navbar o"
-    "sidebar main o"
+    "sidebar navbar right-margin"
+    "sidebar main right-margin"
     "sidebar footer footer";
     min-height: 100vh;
     background-color: var(--body-color);
@@ -29,10 +32,10 @@ body{
     font-style: normal;
 }
 nav {
-    background-color: #ffffffb4;
+    /* background-color: #ffffffb4; */
     padding: 1.5em;
     border-radius: 7px;
-    border: solid #838383 1px;
+    /* border: solid #838383 1px; */
     top: 25px;
     position: sticky;
     grid-area: navbar;
@@ -51,15 +54,50 @@ nav .bt1 {
     align-items: center;
     gap: 5px;
 }
-nav .rightnavContent {
-    padding-right: 100px;
-    
+nav .rightnavContent a {
+    display: inline-flex;
+    align-items: center;  
+    justify-content: center;
+    padding: 8px;  
 }
 aside {
     grid-area: sidebar;
 }
 main {
     grid-area: main;
+    display: grid;
+    grid-template-columns:30px 1fr 30px;
+    grid-template-rows:70px 270px 1fr;
+    grid-template-areas: 
+    "left-margin top-content right-margin"
+    "left-margin booking right-margin"
+    "left-margin bottom-content right-margin";
+
+}
+main .booking  {
+    grid-area: booking;
+    background-color: #ffffff;
+    border-radius: 7px;
+    box-shadow: 0 2px 4px #0000001a;
+    display: grid;
+    grid-template-rows: 12px 100px 12px 135px 1fr;
+    grid-template-areas: 
+    "top"
+    "time"
+    "mid"
+    "main-booking"
+    "bottom";
+}
+main .booking .showDate {
+    grid-area: time;
+    margin: auto;
+    font-family: "Funnel Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    color: #2b2b2b;
+    /* -webkit-text-stroke: 1px #F0F2F5; */
+    font-size: 60px;
 }
 footer {
     grid-area: footer;
