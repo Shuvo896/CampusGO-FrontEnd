@@ -103,7 +103,6 @@ footer {
     grid-area: footer;
     font-size: 1.1rem;
     margin: auto;
-    
 }
 
 .sidebar .head_logo {
@@ -231,12 +230,27 @@ footer {
 }
 
 @media (max-width: 768px) {
+    nav {
+        top: 60px;
+    }
     .sidebar {
         transform: translateX(-120%); /* Hide sidebar initially */
     }
     .hamburger {
         display: flex;
     }
+    body{
+        grid-template-columns: 1px 1fr 1px;
+    }
+    main .booking .showDate {
+        
+        font-size: 20px;
+    }
+    footer {
+        grid-area: footer;
+        font-size: 0.6rem;
+    }
+    
 }
 
 @media (min-width: 769px) {
