@@ -66,8 +66,8 @@ aside {
 main {
     grid-area: main;
     display: grid;
-    grid-template-columns:30px 1fr 30px;
-    grid-template-rows:70px 270px 1fr;
+    grid-template-columns:1.875rem 1fr 1.875rem;
+    grid-template-rows:4.375rem 16.875rem 1fr;
     grid-template-areas: 
     "left-margin top-content right-margin"
     "left-margin booking right-margin"
@@ -80,7 +80,7 @@ main .booking  {
     border-radius: 7px;
     box-shadow: 0 2px 10px #0000001a;
     display: grid;
-    grid-template-rows: 12px 100px 12px 135px 1fr;
+    grid-template-rows: 0.75rem 6.25rem 0.75rem 8.4375rem 1fr;
     grid-template-areas: 
     "top"
     "time"
@@ -97,7 +97,7 @@ main .booking .showDate {
     font-style: normal;
     color: #2b2b2b;
     /* -webkit-text-stroke: 1px #F0F2F5; */
-    font-size: 60px;
+    font-size: 3rem;
 }
 footer {
     grid-area: footer;
@@ -204,19 +204,20 @@ footer {
     flex-direction: column;
     gap: 5px;
     cursor: pointer;
+    z-index: 1000; 
 }
 
 .hamburger .bar {
     width: 30px;
     height: 4px;
-    background-color: rgb(129, 129, 129);
-    transition: all 0.3s ease;
+    background-color: #818181;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); 
 }
 
+
 .hamburger.active .bar:nth-child(1) {
-    transform: rotate(45deg);
-    position: relative;
-    top: 8px;
+    transform: rotate(45deg) translate(6px, 6px); 
+    background-color: #ffffff; 
 }
 
 .hamburger.active .bar:nth-child(2) {
@@ -224,9 +225,8 @@ footer {
 }
 
 .hamburger.active .bar:nth-child(3) {
-    transform: rotate(-45deg);
-    position: relative;
-    top: -8px;
+    transform: rotate(-45deg) translate(6px, -6px); /* Adjusted translation */
+    background-color: #ffffff; 
 }
 
 @media (max-width: 768px) {
@@ -234,8 +234,13 @@ footer {
         top: 60px;
     }
     .sidebar {
-        transform: translateX(-120%); /* Hide sidebar initially */
+        transform: translateX(-120%); 
+        z-index: 999; 
     }
+    .sidebar.active {
+        transform: translateX(0); 
+    }
+
     .hamburger {
         display: flex;
     }
@@ -247,7 +252,7 @@ footer {
     }
     main .booking .showDate {
         
-        font-size: 20px;
+        font-size: 1.25rem;
     }
     footer {
         grid-area: footer;
@@ -258,7 +263,7 @@ footer {
 
 @media (min-width: 769px) {
     .sidebar {
-        transform: translateX(0); /* Always show sidebar on larger screens */
+        transform: translateX(0); 
     }
     .hamburger {
         display: none;
