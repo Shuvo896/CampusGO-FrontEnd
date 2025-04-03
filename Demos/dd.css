@@ -29,8 +29,7 @@
     background-color: #838383;
     border-radius: 12px;
     min-width: 200px;
-    box-shadow: 2px 2px 5px #000000cc;
-
+    box-shadow: 2px 2px 5px #000000cc; 
 }
 .from:hover .content {
     display: block;

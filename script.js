@@ -24,3 +24,31 @@ function formatDate(date) {
 updateDate();
 
 setInterval(updateDate, 60000);
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Select all dropdown buttons
+  const dropdownButtons = document.querySelectorAll(".booking button");
+
+  dropdownButtons.forEach((button) => {
+      button.addEventListener("click", function (event) {
+          // Close all dropdowns except the clicked one
+          document.querySelectorAll(".booking .content").forEach((content) => {
+              if (content !== button.nextElementSibling) {
+                  content.classList.remove("show");
+              }
+          });
+
+          // Toggle the clicked dropdown
+          const dropdownContent = button.nextElementSibling;
+          dropdownContent.classList.toggle("show");
+
+          // Close dropdown if clicking outside
+          document.addEventListener("click", function closeDropdown(e) {
+              if (!button.contains(e.target) && !dropdownContent.contains(e.target)) {
+                  dropdownContent.classList.remove("show");
+                  document.removeEventListener("click", closeDropdown);
+              }
+          });
+      });
+  });
+});

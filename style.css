@@ -90,6 +90,8 @@ main {
     grid-template-areas: 
     "showDate showDate showDate showDate"
     "from to time route";
+    justify-items: center;
+    align-items: center;
 }
 
 main .booking .showDate {
@@ -106,10 +108,66 @@ main .booking .from,
 main .booking .to,
 main .booking .time,
 main .booking .route {
-    display: flex;
-    padding: 10px;
-    align-items: center;
-    grid-area: var(--grid-area);
+    display: inline-block;
+}
+main .booking .from button,
+main .booking .to button, 
+main .booking .time button,
+main .booking .route  button {
+    background-color: #ffffff;
+    color: #414141;
+    
+    border-color: #979797;
+    border-style: solid;
+    border-radius: 12px;
+    border-width: 1px;
+    
+    cursor: pointer;
+    font-family: "Roboto", serif;
+    width: 24em;
+    height: 6em;
+}
+main .booking .from:hover  button,
+main .booking .to:hover  button,
+main .booking .time:hover  button,
+main .booking .route:hover  button {
+    background-color: #F0F2F5;
+    border-color: #61c266;
+}
+
+.booking .from .content,
+.booking .to .content,
+.booking .time .content,
+.booking .route .content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    border-radius: 12px;
+    min-width: 20em;
+    box-shadow: 2px 2px 5px #7e7e7ecc; 
+}
+.booking .from:hover .content,
+.booking .to:hover .content,
+.booking .time:hover .content,
+.booking .route:hover .content {
+    display: block;
+}
+
+.booking .from a,
+.booking .to a,
+.booking .time a,
+.booking .route a {
+    display: block;
+    color: black;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+.booking .from a:hover,
+.booking .to a:hover,
+.booking .time a:hover,
+.booking .route a:hover {
+    background-color: #61c266;
+    border-radius: 12px;
 }
 
 main .search {
