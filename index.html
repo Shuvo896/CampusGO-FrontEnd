@@ -53,19 +53,48 @@
     <!-- Body -->
     <main>
         <div class="booking">
-            <span class="showDate">
-
-            </span>
-            <span class="fromD">
-
-            </span>
-            <span class="toD">
-
-            </span>
-            <span class="schedule">
-
-            </span>
+            <div class="showDate"></div>
+        
+            <div class="from">
+                <button>FROM</button>
+                <div class="content">
+                    <a href="">FROM</a>
+                    <a href="">DSC</a>
+                    <a href="">Mirpur</a>
+                    <a href="">Dhanmundi</a>
+                    <a href="">Uttara</a>
+                </div>
+            </div>
+        
+            <div class="to">
+                <select id="to" name="to">
+                    <option value="" selected>TO</option>
+                    <option value="dsc">DSC</option>
+                    <option value="mirpur">Mirpur</option>
+                    <option value="dhanmundi">Dhanmundi</option>
+                    <option value="uttara">Uttara</option>
+                </select>
+            </div>
+        
+            <div class="time">
+                <select id="time" name="time">
+                    <option value="" selected>TIME</option>
+                    <option value="08:00">08:00 AM</option>
+                    <option value="09:00">09:00 AM</option>
+                    <option value="10:00">10:00 AM</option>
+                </select>
+            </div>
+        
+            <div class="route">
+                <select id="route" name="route">
+                    <option value="" selected>ROUTE</option>
+                    <option value="route1">DSC <--> Mirpur</option>
+                    <option value="route2">DSC <--> Dhanmundi</option>
+                    <option value="route3">DSC <--> Uttara</option>
+                </select>
+            </div>
         </div>
+        <button class="search">SEARCH</button>
     </main>
     <!-- Body ending -->
 

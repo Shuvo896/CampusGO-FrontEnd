@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+.from {
+    display: inline-block;
+}
+.from button {
+    background-color: #ffffff;
+    color: #414141;
+    
+    border-color: #979797;
+    border-style: solid;
+    border-radius: 12px;
+    border-width: 1px;
+    
+    cursor: pointer;
+    font-family: "Roboto", serif;
+
+    padding: 10px 15px;
+    width: 200px;
+}
+.from:hover button {
+    background-color: #F0F2F5;
+    border-color: #61c266;
+}
+
+.from .content {
+    display: none;
+    position: absolute;
+    background-color: #838383;
+    border-radius: 12px;
+    min-width: 200px;
+    box-shadow: 2px 2px 5px #000000cc;
+
+}
+.from:hover .content {
+    display: block;
+}
+
+.from a {
+    display: block;
+    color: black;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+.from a:hover {
+    background-color: #faebd7;
+}
+
+
