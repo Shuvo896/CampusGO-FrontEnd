@@ -25,30 +25,34 @@ updateDate();
 
 setInterval(updateDate, 60000);
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Select all dropdown buttons
-  const dropdownButtons = document.querySelectorAll(".booking button");
+// dropdown
 
-  dropdownButtons.forEach((button) => {
-      button.addEventListener("click", function (event) {
-          // Close all dropdowns except the clicked one
-          document.querySelectorAll(".booking .content").forEach((content) => {
-              if (content !== button.nextElementSibling) {
-                  content.classList.remove("show");
-              }
-          });
+// const dropdowns = document.querySelectorAll('.dropdown');
 
-          // Toggle the clicked dropdown
-          const dropdownContent = button.nextElementSibling;
-          dropdownContent.classList.toggle("show");
+// dropdowns.forEach(dropdown => {
+//   const select = dropdown.querySelector('.select');
+//   const caret = dropdown.querySelector('.caret');
+//   const menu = dropdown.querySelector('.menu');
+//   const options = dropdown.querySelector('.menu li');
+//   const selected = dropdown.querySelector('.selected');
 
-          // Close dropdown if clicking outside
-          document.addEventListener("click", function closeDropdown(e) {
-              if (!button.contains(e.target) && !dropdownContent.contains(e.target)) {
-                  dropdownContent.classList.remove("show");
-                  document.removeEventListener("click", closeDropdown);
-              }
-          });
-      });
-  });
-});
+//   select.addEventListener('click' , () => {
+//     select.classList.toggle('select-clicked');
+//     caret.classList.toggle('caret-rotate');
+//     menu.classList.toggle('menu-open');
+// });
+
+//   options.forEach(option => {
+//     option.addEventListener('click', ()=>{
+//       selected.innerText = option.innerText;
+//       select.classList.remove('select-clicked');
+//       caret.classList.remove('caret-rotate');
+//       menu.classList.remove('menu-open');
+
+//       options.forEach(option => {
+//         option.classList.remove('active');
+//       });
+//       option.classList.add('active');
+//     });
+//   });
+// });

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="dd.css">
 </head>
 <body>
-    <div class="dropdown">
+    <!-- <div class="dropdown">
         <div class="from">
             <button>FROM</button>
             <div class="content">
@@ -17,39 +17,33 @@
                 <a href="">Dhanmundi</a>
                 <a href="">Uttara</a>
             </div>
-        </div>
+        </div> -->
         
-        <!-- <div class="to dropdown">
-            <button class="dropdown-btn" onclick="toggleDropdown('toDropdown')">TO</button>
-            <div class="dropdown-content" id="toDropdown">
-                <a href="#" onclick="selectOption('toDropdown', 'TO', 'TO')">TO</a>
-                <a href="#" onclick="selectOption('toDropdown', 'DSC', 'TO')">DSC</a>
-                <a href="#" onclick="selectOption('toDropdown', 'Mirpur', 'TO')">Mirpur</a>
-                <a href="#" onclick="selectOption('toDropdown', 'Dhanmundi', 'TO')">Dhanmundi</a>
-                <a href="#" onclick="selectOption('toDropdown', 'Uttara', 'TO')">Uttara</a>
+        <div class="dropdown">
+            <div class="select">
+                <span class="selected">FROM</span>
+                <div class="caret"></div>
             </div>
+            <ul class="menu">
+                <li class="active">DSC</li>
+                <li>Mirpur</li>
+                <li>Dhanmundi</li>
+                <li>Uttara</li>
+            </ul>
         </div>
-        
-        <div class="time dropdown">
-            <button class="dropdown-btn" onclick="toggleDropdown('timeDropdown')">TIME</button>
-            <div class="dropdown-content" id="timeDropdown">
-                <a href="#" onclick="selectOption('timeDropdown', 'TIME', 'TIME')">TIME</a>
-                <a href="#" onclick="selectOption('timeDropdown', '08:00 AM', 'TIME')">08:00 AM</a>
-                <a href="#" onclick="selectOption('timeDropdown', '09:00 AM', 'TIME')">09:00 AM</a>
-                <a href="#" onclick="selectOption('timeDropdown', '10:00 AM', 'TIME')">10:00 AM</a>
+        <div class="dropdown">
+            <div class="select">
+                <span class="selected">TO</span>
+                <div class="caret"></div>
             </div>
+            <ul class="menu">
+                <li class="active">DSC</li>
+                <li>Mirpur</li>
+                <li>Dhanmundi</li>
+                <li>Uttara</li>
+            </ul>
         </div>
-        
-        <div class="route dropdown">
-            <button class="dropdown-btn" onclick="toggleDropdown('routeDropdown')">ROUTE</button>
-            <div class="dropdown-content" id="routeDropdown">
-                <a href="#">ROUTE</a> 
-                <a href="#">DSC - Mirpur</a>
-                <a href="#">DSC - Dhanmundi</a>
-                <a href="#">DSC - Uttara</a>
-            </div>
-        </div>-->
     </div>
-    
+    <script src="dd.js"></script>
 </body>
 </html>
