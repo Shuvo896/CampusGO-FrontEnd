@@ -95,11 +95,11 @@ footer {
     width: 225px;
     padding: 10px 14px;
     border-radius: 10px;
+    justify-content: center;
     background-image:
         linear-gradient(20deg, rgb(32, 32, 37) 30%, rgb(62, 62, 71));
     transition: transform 0.3s ease-in-out;
     transform: translateX(-250px);
-
 }
 
 .sidebar.active {

@@ -2,10 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap');
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
+* {
     margin: 0;
 }
 
@@ -35,14 +32,19 @@ body {
 }
 
 nav {
+    /* background-color: #ffffffb4; */
     padding: 1.5em;
     border-radius: 7px;
+    /* border: solid #838383 1px; */
     top: 25px;
     position: sticky;
     grid-area: navbar;
+    margin-top: auto;
+    margin-bottom: auto;
     display: flex;
     justify-content: space-between;
     backdrop-filter: blur(1.5px);
+
 }
 
 nav .bt1 {
@@ -188,9 +190,6 @@ main .search:hover {
     color: #61c266;
 }
 
-label {
-    font-weight: bold;
-}
 
 select {
     width: 100%;
@@ -216,12 +215,12 @@ footer {
     top: 15px;
     left: 15px;
     bottom: 15px;
-    width: 250px;
+    width: 225px;
     padding: 10px 14px;
     border-radius: 10px;
-    justify-items: center;
+    justify-content: center;
     background-image:
-        linear-gradient(20deg, #202025 30%, #3e3e47);
+        linear-gradient(20deg, rgb(32, 32, 37) 30%, rgb(62, 62, 71));
     transition: transform 0.3s ease-in-out;
     transform: translateX(-250px);
 }
