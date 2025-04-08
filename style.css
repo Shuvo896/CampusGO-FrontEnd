@@ -70,7 +70,7 @@ aside {
 main {
     grid-area: main;
     display: grid;
-    grid-template-columns: 1fr 90em 1fr;
+    grid-template-columns: 1fr 70em 1fr;
     grid-template-rows: 4.375rem 16.875rem 1fr;
     grid-template-areas:
         ". . ."
@@ -173,8 +173,8 @@ main .booking .route:hover button {
 
 main .search {
     grid-area: Search;
-    margin-right: 33rem;
-    margin-left: 33rem;
+    margin-right: 20rem;
+    margin-left: 20rem;
     margin-top: 2rem;
     margin-bottom: 22rem;
     height: 80px;
