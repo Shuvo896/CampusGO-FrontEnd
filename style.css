@@ -83,12 +83,13 @@ main {
     display: grid;
     background-color: #ffffff;
     border-radius: 7px;
+    /* width: 76rem; */
     box-shadow: 0 2px 10px #0000001a;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas:
-        "showDate showDate showDate showDate"
-        "from to time route";
+        "showDate showDate showDate"
+        "from to time";
     justify-items: center;
     align-items: center;
 }
