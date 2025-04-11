@@ -10,54 +10,54 @@
 
 body {
     font-family: sans-serif;
-
-    /* background: linear-gradient(45deg, #47A34B, #005ED0, #63B967, #2b2b2b); */
     background-color: #F0F2F5;
-    /* background-size: 400% 400%; */
-    /* animation: gradientAnimation 15s ease infinite; */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
 }
-
+body div img {
+    height: 70px;
+    padding-bottom: 1em;
+}
 .login{
     
     padding: 1.5rem;
-
 }
-
 .login a {
     color: #ffffff;
     text-decoration: none;
 }
-
-@keyframes gradientAnimation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
 .signup-container {
     background-color: #ffffff;
-    padding: 7rem;
+    padding: 5rem;
     padding-right: 2rem;
     padding-left: 2rem;
     border-radius: 10px;
-    /* border: solid 0.3px #ffffff; */
     background-image:
         linear-gradient(20deg, rgb(32, 32, 37) 30%, rgb(62, 62, 71));
     box-shadow: 0 0 20px #ffffff;
     backdrop-filter: blur(10px);
     text-align: center;
     width: 30em;
+}
+.signup-container .back-button {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    font-size: 1.5rem;
+    color: #ffffff;
+    /* background-color: rgba(0, 0, 0, 0.4); */
+    padding: 0.4rem 0.7rem;
+    border-radius: 17%;
+    text-decoration: none;
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.signup-container .back-button:hover {
+    background-color: rgba(28, 28, 28, 0.6);
 }
 
 .signup-container h2 {
@@ -75,8 +75,10 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
+    padding: 0.5em;
 }
 .signup-container label {
+    padding-bottom: 0.4em;
     color: #ffffff;
 }
 .signup-container input,
@@ -94,12 +96,13 @@ body {
 .signup-container button {
     background-color: var(--tap-color);
     color: #ffffff;
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem ;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 100%;
-    transition: background-color 0.3s ease;
+    margin-top: 2em;
+    width: 35em;
+    
 }
 
 .signup-container button:hover {
@@ -113,9 +116,39 @@ body {
     text-align: left;
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    .signup-container {
+        width: 18em;
+        padding: 1.5rem;
+        padding-top: 2em;
+    }
+
+    body div img {
+        height: 70px;
+    }
     .form-row {
         flex-direction: column;
+    }
+
+    .form-group {
+        padding: 0.3em;
+    }
+
+    .signup-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .signup-container input,
+    .signup-container select {
+        padding: 0.65rem;
+    }
+
+    .signup-container button {
+        padding: 0.65rem 1rem;
+        width: 20.8em;
+    }
+
+    .login {
+        padding: 1rem 0;
     }
 }

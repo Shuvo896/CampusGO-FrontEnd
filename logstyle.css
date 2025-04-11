@@ -19,8 +19,9 @@ body {
 }
 
 .login-container {
+    position: relative;
     background-color: #ffffff;
-    padding: 9rem;
+    padding: 8rem;
     padding-top: 4rem;
     padding-right: 2rem;
     padding-left: 2rem;
@@ -31,6 +32,19 @@ body {
     backdrop-filter: blur(10px);
     text-align: center;
     width: 300px;
+}
+
+.close-button {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    font-size: 2rem;
+    color: #ffffff;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
 }
 
 .login-container h2 {
@@ -67,5 +81,5 @@ body {
     color: #ffffff;
     text-decoration: none;
     display: block;
-    margin-top: 3.4rem;
+    margin-top: 1rem;
 }
