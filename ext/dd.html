@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="dd.css"> -->
+    <style>
+        .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: #333;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 16px;
+    }
+
+    .form-group textarea {
+        min-height: 100px;
+        resize: vertical;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="form-group">
+        <label for="dietary">Any dietary preferences or restrictions?</label>
+        <select id="dietary">
+            <option value="none">No restrictions</option>
+            <option value="vegetarian">Vegetarian</option>
+            <option value="vegan">Vegan</option>
+            <option value="gluten-free">Gluten-free</option>
+            <option value="dairy-free">Dairy-free</option>
+            <option value="nut-free">Nut-free</option>
+        </select>
+    </div>
+    
+    <main>
+        <div class="booking">
+            <div class="showDate"></div>
+
+            <div class="from">
+                <!-- <label for="dietary">FROM</label> -->
+                <select id="from">
+                    <option value="from">FROM</option>
+                    <option value="dsc">DSC</option>
+                    <option value="mirpur">Mirpur</option>
+                    <option value="dhanmundi">Dhanmundi</option>
+                    <option value="uttara">Uttara</option>
+                </select>
+            </div>
+
+            <!-- <div class="from">
+                <button><p style="font-size: 18.5px;">FROM</p></button>
+                <div class="content">
+                    <a href="">FROM</a>
+                    <a href="">DSC</a>
+                    <a href="">Mirpur</a>
+                    <a href="">Dhanmundi</a>
+                    <a href="">Uttara</a>
+                </div>
+            </div> -->
+        
+            <div class="to">
+                <select id="to">
+                    <option value="from">TO</option>
+                    <option value="dsc">DSC</option>
+                    <option value="mirpur">Mirpur</option>
+                    <option value="dhanmundi">Dhanmundi</option>
+                    <option value="uttara">Uttara</option>
+                </select>
+            </div>
+        
+            <div class="time">
+                <select id="time">
+                    <option value="from">TIME</option>
+                    <option value="dsc">08:00 AM</option>
+                    <option value="mirpur">09:00 AM</option>
+                    <option value="dhanmundi">10:00 AM</option>
+                </select>
+            </div>
+        </div>
+        <button class="search">SEARCH</button>
+    </main>
+</body>
+</html>
