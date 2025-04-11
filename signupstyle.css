@@ -18,17 +18,21 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    padding: 1rem;
 }
 
+.login a{
+    color: #ffffff;
+    text-decoration: none;
+
+}
 @keyframes gradientAnimation {
     0% {
         background-position: 0% 50%;
     }
-
     50% {
         background-position: 100% 50%;
     }
-
     100% {
         background-position: 0% 50%;
     }
@@ -42,12 +46,25 @@ body {
     box-shadow: 0 0 20px #0000001a;
     backdrop-filter: blur(10px);
     text-align: center;
-    width: 300px;
+    width: 100%;
+    max-width: 500px;
 }
 
 .signup-container h2 {
     color: #ffffff;
     margin-bottom: 1.5rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .signup-container input,
@@ -58,35 +75,13 @@ body {
     border: 1px solid var(--selection-color);
     border-radius: 5px;
     box-sizing: border-box;
-    background-color: rgba(255, 255, 255, 0.5);
-    color: #fff; /* Set text color to white for better visibility */
-}
-
-.signup-container select {
-  appearance: none; /* Remove default arrow on some browsers */
-  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23fff" d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>');
-  background-repeat: no-repeat;
-  background-position: right .75rem center;
-  background-size: 8px 10px;
-  padding-right: 25px; /* Space for the custom arrow */
-  /* Make the options readable */
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    /* Add a background color for the options (adjust as needed) */
-    background-color: rgba(0, 0, 0, 0.7); /* Example: Dark background */
-
-}
-
-/* Style the options inside the select */
-.signup-container select option {
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.8); /* Example: Slightly darker */
-    padding: 8px;
+    background-color: #ffffff80;
+    color: #000000;
 }
 
 .signup-container button {
     background-color: var(--tap-color);
-    color: white;
+    color: #ffffff;
     padding: 0.75rem 1.5rem;
     border: none;
     border-radius: 5px;
@@ -99,16 +94,16 @@ body {
     background-color: var(--base-color2);
 }
 
-.signup-container a {
-    color: #ffffff;
-    text-decoration: none;
-    display: block;
-    margin-top: 1rem;
-}
-
 .error {
     color: red;
     font-size: 0.8em;
     margin-top: 5px;
-    text-align: left; /* Align error messages to the left */
+    text-align: left;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .form-row {
+        flex-direction: column;
+    }
 }
