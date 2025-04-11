@@ -70,7 +70,7 @@ aside {
 main {
     grid-area: main;
     display: grid;
-    grid-template-columns: 1fr 70em 1fr;
+    grid-template-columns: 2em 1fr 2em;
     grid-template-rows: 4.375rem 16.875rem 1fr;
     grid-template-areas:
         ". . ."
@@ -103,38 +103,9 @@ main .booking .showDate {
     font-size: 3rem;
 }
 
-/* main .booking .from,
-main .booking .to,
-main .booking .time {
-    display: inline-block;
-} */
-
-/* main .booking .from button,
-main .booking .to button,
-main .booking .time button {
-    background-color: #ffffff;
-    color: #2b2b2b;
-    border: 1px solid #979797;
-    border-radius: 7px;
-    cursor: pointer;
-    font-family: "Roboto", serif;
-    width: 25em;
-    height: 6em;
-} */
-
-/* main .booking .from:hover button,
-main .booking .to:hover button,
-main .booking .time:hover button {
-    background-color: #F0F2F5;
-    border-color: #61c266;
-} */
-
-
 .from select,
 .to select,
 .time select {
-    /* width: 100%; */
-    /* padding: 12px; */
     width: 22rem;
     height: 6rem;
     border: 1px solid #dedede;
@@ -144,9 +115,9 @@ main .booking .time:hover button {
 .from select:hover,
 .to select:hover,
 .time select:hover {
+    background-color: #F0F2F5;
     border: 1px solid #47A34B;
 }
-
 
 main .search {
     grid-area: Search;
