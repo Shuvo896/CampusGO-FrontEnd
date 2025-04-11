@@ -32,6 +32,77 @@ body {
     font-weight: 400;
     font-style: normal;
 }
+main {
+    display: grid;
+    grid-template-rows: 6em 4em 1fr;
+    grid-template-areas: 
+    "belt-section"
+    "filter"
+    "bus-lists";
+}
+
+main .belt-section {
+    grid-area: belt-section;
+    height: 20em;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 3em;
+    padding-right: 3em;
+}
+
+main .belt-section button {
+    width: 12em;
+    height: 5em;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #ffffff;
+    border-color: #89d48d;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 5px ;
+
+}
+main .belt-section button:hover {
+    background-color: var(--body-color);
+}
+
+main .filter {
+    grid-area: filter;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2em;
+    
+}
+
+main .filter .from,
+main .filter .to,
+main .filter .time{
+    border: 1px solid #dedede;
+    border-radius: 6px;
+    
+}
+
+
+main .filter-out {
+    width: 10em;
+    height: 4em;
+    margin-right: 0.7em;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #ffffff;
+    border-color: #89d48d;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 5px ;
+    
+}
+
+main .bus-lists {
+    grid-area: bus-lists;
+}
 
 nav {
     /* background-color: #ffffffb4; */
