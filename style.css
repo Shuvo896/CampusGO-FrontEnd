@@ -120,11 +120,10 @@ main .booking .showDate {
     background-color: #F0F2F5;
     border: 1px solid #47A34B;
 }
-
 main .search {
     grid-area: Search;
-    margin-right: 20rem;
-    margin-left: 20rem;
+    margin-right: 30rem;
+    margin-left: 30rem;
     margin-top: 2rem;
     margin-bottom: 22rem;
     height: 80px;
