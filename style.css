@@ -328,51 +328,26 @@ footer {
         margin: 0 1rem;
         border-radius: 10px;
     }
+    .from select,
+    .to select,
+    .time select {
+        padding: 1rem;
+        width: 20em;
+        /* height: 3.2rem; */
+        font-size: 1rem;
+        border-radius: 6px;
+    }
 
     main .booking .showDate {
         font-size: 1.8rem;
         text-align: center;
         margin-bottom: 0.5rem;
     }
-
-    .booking .from,
-    .booking .to,
-    .booking .time,
-    .booking .route {
-        width: 100%;
-    }
-
-    .booking .from button,
-    .booking .to button,
-    .booking .time button,
-    .booking .route button {
-        width: 100%;
-        padding: 1rem;
-        font-size: 1rem;
-        height: auto;
-    }
-
-    .booking .from .content,
-    .booking .to .content,
-    .booking .time .content,
-    .booking .route .content {
-        position: static;
-        min-width: 100%;
-        box-shadow: none;
-        margin-top: 0.5rem;
-    }
-
-    .booking .from a,
-    .booking .to a,
-    .booking .time a,
-    .booking .route a {
-        padding: 10px;
-    }
-
+    
     main .search {
         margin: 2rem auto;
-        width: 90%;
-        height: 3rem;
+        width: 20em;
+        height: 4rem;
         font-size: 1rem;
         border-radius: 10px;
     }
