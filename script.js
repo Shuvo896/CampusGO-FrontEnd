@@ -77,25 +77,25 @@ function initBusSystem() {
         return savedBuses ? JSON.parse(savedBuses) : getSampleBuses();
     }
 
-    // function getSampleBuses() {
-    //     return [
-    //         {
-    //             id: '1', number: 'DIU-101', driver: 'John Doe',
-    //             from: 'Mirpur', to: 'Uttara', time: '08:00 AM',
-    //             capacity: 40, passengers: 32
-    //         },
-    //         {
-    //             id: '2', number: 'DIU-102', driver: 'Jane Smith',
-    //             from: 'Dhanmundi', to: 'Mirpur', time: '09:00 AM',
-    //             capacity: 40, passengers: 28
-    //         },
-    //         {
-    //             id: '3', number: 'DIU-103', driver: 'Robert Johnson',
-    //             from: 'Uttara', to: 'Dhanmundi', time: '10:00 AM',
-    //             capacity: 40, passengers: 35
-    //         }
-    //     ];
-    // }
+    function getSampleBuses() {
+        return [
+            {
+                id: '1', number: 'DIU-101', driver: 'John Doe',
+                from: 'Mirpur', to: 'Uttara', time: '08:00 AM',
+                capacity: 40, passengers: 32
+            },
+            {
+                id: '2', number: 'DIU-102', driver: 'Jane Smith',
+                from: 'Dhanmundi', to: 'Mirpur', time: '09:00 AM',
+                capacity: 40, passengers: 28
+            },
+            {
+                id: '3', number: 'DIU-103', driver: 'Robert Johnson',
+                from: 'Uttara', to: 'Dhanmundi', time: '10:00 AM',
+                capacity: 40, passengers: 35
+            }
+        ];
+    }
 
     function setupBusEventListeners() {
         // Add Bus button
