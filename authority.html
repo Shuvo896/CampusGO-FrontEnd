@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="dist/hamburgers.css" rel="stylesheet">
-
 </head>
 
 <body>
@@ -88,8 +87,7 @@
         <div class="filter">
             <div class="from">
                 <select id="from">
-                    <option value="from">FROM</option>
-                    <option value="all">ANYWHERE</option>
+                    <option value="all">FROM (ALL)</option>
                     <option value="mirpur">Mirpur</option>
                     <option value="dhanmundi">Dhanmundi</option>
                     <option value="uttara">Uttara</option>
@@ -98,8 +96,7 @@
 
             <div class="to">
                 <select id="to">
-                    <option value="from">TO</option>
-                    <option value="all">ANYWHERE</option>
+                    <option value="all">TO (ALL)</option>
                     <option value="mirpur">Mirpur</option>
                     <option value="dhanmundi">Dhanmundi</option>
                     <option value="uttara">Uttara</option>
@@ -108,18 +105,17 @@
 
             <div class="time">
                 <select id="time">
-                    <option value="from">TIME</option>
-                    <option value="all">ANYTIME</option>
-                    <option value="dsc">08:00 AM</option>
-                    <option value="mirpur">09:00 AM</option>
-                    <option value="dhanmundi">10:00 AM</option>
+                    <option value="all">TIME (ALL)</option>
+                    <option value="08:00 AM">08:00 AM</option>
+                    <option value="09:00 AM">09:00 AM</option>
+                    <option value="10:00 AM">10:00 AM</option>
                 </select>
             </div>
             <button class="filter-out">Filter</button>
         </div>
         <!-- bus lists  -->
-        <div class="but-lists">
-
+        <div class="bus-lists">
+            <!-- Bus cards will be dynamically inserted here by JavaScript -->
         </div>
     </main>
     <!-- Body ending -->
@@ -197,56 +193,107 @@
     </div>
     <!-- Footer Making -->
     <footer>
-        <p>Copyright © 2025 Daffodil International University. All Rights Reserved.</p>
+        <p>© 2025 Eclipse. All rights reserved.</p>
     </footer>
+    
     <!-- Footer End -->
     
-    <!-- add notice -->
-    <!-- add notice -->
-<!-- add notice -->
-<div class="modal" id="noticeModal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Notice Management</h2>
-        
-        <div class="notice-management-tabs">
-            <button class="tab-btn active" data-tab="create">Create Notice</button>
-            <button class="tab-btn" data-tab="manage">Manage Notices</button>
-        </div>
-        
-        <!-- Create Notice Tab -->
-        <div class="tab-content active" id="create-tab">
-            <div class="text-editor-toolbar">
-                <button class="tool-btn" data-command="bold"><i class="bi bi-type-bold"></i></button>
-                <button class="tool-btn" data-command="italic"><i class="bi bi-type-italic"></i></button>
-                <button class="tool-btn" data-command="underline"><i class="bi bi-type-underline"></i></button>
-                <input type="color" class="color-picker" data-command="foreColor">
-                <select class="font-size" data-command="fontSize">
-                    <option value="1">Small</option>
-                    <option value="3" selected>Normal</option>
-                    <option value="5">Large</option>
-                    <option value="7">Extra Large</option>
-                </select>
+    <!-- add notice modal -->
+    <div class="modal" id="noticeModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Notice Management</h2>
+            
+            <div class="notice-management-tabs">
+                <button class="tab-btn active" data-tab="create">Create Notice</button>
+                <button class="tab-btn" data-tab="manage">Manage Notices</button>
             </div>
-            <div class="text-editor" id="noticeEditor" contenteditable="true"></div>
-            <button class="submit-notice">Publish Notice</button>
-        </div>
-        
-        <!-- Manage Notices Tab -->
-        <div class="tab-content" id="manage-tab">
-            <div class="notices-list">
-                <!-- Notices will be loaded here -->
+            
+            <!-- Create Notice Tab -->
+            <div class="tab-content active" id="create-tab">
+                <div class="text-editor-toolbar">
+                    <button class="tool-btn" data-command="bold"><i class="bi bi-type-bold"></i></button>
+                    <button class="tool-btn" data-command="italic"><i class="bi bi-type-italic"></i></button>
+                    <button class="tool-btn" data-command="underline"><i class="bi bi-type-underline"></i></button>
+                    <input type="color" class="color-picker" data-command="foreColor">
+                    <select class="font-size" data-command="fontSize">
+                        <option value="1">Small</option>
+                        <option value="3" selected>Normal</option>
+                        <option value="5">Large</option>
+                        <option value="7">Extra Large</option>
+                    </select>
+                </div>
+                <div class="text-editor" id="noticeEditor" contenteditable="true"></div>
+                <button class="submit-notice">Publish Notice</button>
             </div>
-            <div class="management-actions">
-                <button class="delete-selected">Delete Selected</button>
-                <button class="clear-notices">Clear All Notices</button>
+            
+            <!-- Manage Notices Tab -->
+            <div class="tab-content" id="manage-tab">
+                <div class="notices-list">
+                    <!-- Notices will be loaded here -->
+                </div>
+                <div class="management-actions">
+                    <button class="delete-selected">Delete Selected</button>
+                    <button class="clear-notices">Clear All Notices</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-    <script src="script.js">
-
-    </script>
+    <!-- Add Bus Modal -->
+    <div class="modal" id="busModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">Add New Bus</h2>
+            <form id="busForm">
+                <input type="hidden" id="busId">
+                
+                <div class="form-group">
+                    <label for="busNumber">Bus Number</label>
+                    <input type="text" id="busNumber" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="driverName">Driver Name</label>
+                    <input type="text" id="driverName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="fromLocation">From</label>
+                    <select id="fromLocation" required>
+                        <option value="">Select Location</option>
+                        <option value="Mirpur">Mirpur</option>
+                        <option value="Dhanmundi">Dhanmundi</option>
+                        <option value="Uttara">Uttara</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="toLocation">To</label>
+                    <select id="toLocation" required>
+                        <option value="">Select Location</option>
+                        <option value="Mirpur">Mirpur</option>
+                        <option value="Dhanmundi">Dhanmundi</option>
+                        <option value="Uttara">Uttara</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="departureTime">Departure Time</label>
+                    <input type="time" id="departureTime" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="capacity">Capacity</label>
+                    <input type="number" id="capacity" min="1" value="40" required>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">Save</button>
+                    <button type="button" class="cancel-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
-
 </html>

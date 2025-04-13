@@ -32,78 +32,201 @@ body {
     font-weight: 400;
     font-style: normal;
 }
+/* ===== Main Content Styles ===== */
 main {
     display: grid;
-    grid-template-rows: 6em 4em 1fr;
+    grid-template-rows: auto auto 1fr;
     grid-template-areas: 
-    "belt-section"
-    "filter"
-    "bus-lists";
+        "belt-section"
+        "filter"
+        "bus-lists";
+    gap: 1.5rem;
+    padding: 1.5rem;
+    margin-left: 20px; /* Prevent overlap with sidebar */
 }
 
+/* Belt Section */
 main .belt-section {
     grid-area: belt-section;
-    height: 20em;
     display: flex;
-    justify-content: space-between;
-    padding-left: 3em;
-    padding-right: 3em;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    padding: 1rem;
+    flex-wrap: wrap;
 }
 
 main .belt-section button {
-    width: 12em;
-    height: 5em;
+    min-width: 12em;
+    height: 3.5em;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
+    gap: 0.5rem;
     background-color: #ffffff;
-    border-color: #89d48d;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 5px ;
-
+    border: 2px solid var(--base-color2);
+    border-radius: 8px;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
+
 main .belt-section button:hover {
-    background-color: var(--body-color);
+    background-color: var(--base-color2);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
+main .belt-section button svg {
+    transition: all 0.2s ease;
+}
+
+main .belt-section button:hover svg {
+    fill: white;
+}
+
+/* Filter Section */
 main .filter {
     grid-area: filter;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 2em;
-    
+    gap: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-main .filter .from,
-main .filter .to,
-main .filter .time{
-    border: 1px solid #dedede;
+main .filter select {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
     border-radius: 6px;
-    
+    font-size: 0.9rem;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
+main .filter select:focus {
+    outline: none;
+    border-color: var(--base-color2);
+    box-shadow: 0 0 0 2px rgba(71, 163, 75, 0.2);
+}
 
 main .filter-out {
-    width: 10em;
-    height: 4em;
-    margin-right: 0.7em;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: #ffffff;
-    border-color: #89d48d;
-    border-width: 1px;
-    border-style: solid;
-    border-radius: 5px ;
-    
+    padding: 0.75rem 1.5rem;
+    background-color: var(--base-color2);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
+main .filter-out:hover {
+    background-color: var(--base-color1);
+    transform: translateY(-1px);
+}
+
+/* Bus Lists Section */
 main .bus-lists {
     grid-area: bus-lists;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
 }
 
+/* Bus Card Design */
+.bus-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--base-color2);
+}
+
+.bus-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.bus-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #eee;
+}
+
+.bus-number {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--base-color2);
+}
+
+.bus-route {
+    margin: 1rem 0;
+}
+
+.route {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.route-point {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--base-color2);
+}
+
+.route-time {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.bus-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.bus-capacity {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.bus-actions button {
+    padding: 0.5rem 1rem;
+    background-color: var(--base-color2);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.bus-actions button:hover {
+    background-color: var(--base-color1);
+}
 /* Modal styles */
 .modal {
     display: none;
@@ -115,7 +238,9 @@ main .bus-lists {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
 }
-
+.modal.active {
+    display: block;
+}
 .modal-content {
     background-color: #fefefe;
     margin: 5% auto;
@@ -179,6 +304,105 @@ main .bus-lists {
     background-color: #3d8b40;
 }
 
+/* Bus Modal Styles */
+#busModal .modal-content {
+    max-width: 500px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.submit-btn {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--base-color2);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.submit-btn:hover {
+    background-color: var(--base-color1);
+}
+
+.cancel-btn {
+    padding: 0.75rem 1.5rem;
+    background-color: #f0f0f0;
+    color: #333;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.cancel-btn:hover {
+    background-color: #e0e0e0;
+}
+/* Progress Bar Styles */
+.bus-progress {
+    margin: 1rem 0;
+}
+
+.progress-bar {
+    height: 8px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.capacity-info {
+    font-size: 0.85rem;
+    color: #666;
+    text-align: center;
+}
+
+.no-buses {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+    font-size: 1.1rem;
+    grid-column: 1 / -1;
+}
+/* Bus Status Indicators */
+.status-available {
+    color: var(--base-color2);
+    font-weight: 500;
+}
+
+.status-full {
+    color: #ff4d4d;
+    font-weight: 500;
+}
 /* Notice card styles */
 .notice-card {
     background: white;
@@ -344,6 +568,8 @@ main .bus-lists {
 .clear-notices:hover {
     background-color: #ff1a1a;
 }
+
+
 
 nav {
     /* background-color: #ffffffb4; */
