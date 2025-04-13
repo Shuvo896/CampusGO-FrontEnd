@@ -96,30 +96,46 @@ main {
 
 main .booking .showDate {
     grid-area: showDate;
-    margin: auto;
-    font-family: "Doto", sans-serif;
-    font-weight: 700;
-    color: #2b2b2b;
-    font-size: 3rem;
+  margin: auto;
+  font-family: "Doto", sans-serif;
+  font-weight: 700;
+  color: #2b2b2b;
+  font-size: 3rem;
+  text-align: center;
+  width: 100%;
+}
+
+.from,
+.to,
+.time {
+    width: 100%;
+    padding: 0 1rem;
 }
 
 .from select,
 .to select,
 .time select {
-    /* width: 200px; */
-    padding-left: 10rem;
-    padding-right: 10rem;
-    height: 5rem ;
+    width: 100%;
+    padding: 1rem;
+    height: 3.5rem;
     border: 1px solid #dedede;
     border-radius: 6px;
     font-size: 16px;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1em;
+    cursor: pointer;
 }
+
 .from select:hover,
 .to select:hover,
 .time select:hover {
     background-color: #F0F2F5;
     border: 1px solid #47A34B;
 }
+
 main .search {
     grid-area: Search;
     margin-right: 30rem;
@@ -286,85 +302,102 @@ footer {
 
 @media (max-width: 768px) {
     nav {
-        top: 20px;
+      top: 20px;
     }
-
+  
     .sidebar {
-        transform: translateX(-120%);
-        z-index: 999;
+      transform: translateX(-120%);
+      z-index: 999;
     }
-
+  
     .sidebar.active {
-        transform: translateX(0);
+      transform: translateX(0);
     }
-
+  
     .hamburger {
-        display: flex;
+      display: flex;
     }
-
+  
     body {
-        grid-template-columns: 1px 1fr 1px;
+      grid-template-columns: 1px 1fr 1px;
     }
-
+  
     main {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        grid-template-areas:
-            "booking"
-            "Search";
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      grid-template-areas:
+        "booking"
+        "Search";
     }
-
+  
     .booking {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        grid-template-areas:
-            "showDate"
-            "from"
-            "to"
-            "time"
-            "route";
-        gap: 1.2rem;
-        padding: 1.5rem;
-        margin: 0 1rem;
-        border-radius: 10px;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+      grid-template-areas:
+        "showDate"
+        "from"
+        "to"
+        "time";
+      gap: 1rem;
+      padding: 1.5rem;
+      margin: 0 1rem;
+      border-radius: 10px;
     }
+    
+    .from, .to, .time {
+      width: 100%;
+    }
+    
     .from select,
     .to select,
     .time select {
-        padding: 1rem;
-        width: 20em;
-        /* height: 3.2rem; */
-        font-size: 1rem;
-        border-radius: 6px;
+      width: 100%;
+      max-width: 100%;
+      padding: 1rem;
+      height: 3.5rem;
+      font-size: 1rem;
+      border-radius: 6px;
     }
+  
+    main .search {
+      margin: 1rem auto;
+      width: 90%;
+      max-width: 300px;
+      height: 4rem;
+      font-size: 1rem;
+      border-radius: 10px;
+    }
+  
+    footer {
+      font-size: 0.6rem;
+      text-align: center;
+    }
+  }
 
-    main .booking .showDate {
-        font-size: 1.8rem;
-        text-align: center;
-        margin-bottom: 0.5rem;
+
+  @media (min-width: 769px) {
+    .sidebar {
+      transform: translateX(0);
+    }
+  
+    .hamburger {
+      display: none;
+    }
+  
+    .booking {
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas:
+        "showDate showDate showDate"
+        "from to time";
+      gap: 1rem;
+      padding: 2rem;
     }
     
-    main .search {
-        margin: 2rem auto;
-        width: 20em;
-        height: 4rem;
-        font-size: 1rem;
-        border-radius: 10px;
+    .from select,
+    .to select,
+    .time select {
+      min-width: 200px;
+      padding: 1rem 2rem;
     }
-
-    footer {
-        font-size: 0.6rem;
-        text-align: center;
-    }
-}
-
-
-@media (min-width: 769px) {
-    .sidebar {
-        transform: translateX(0);
-    }
-
-    .hamburger {
-        display: none;
-    }
-}
+  }
