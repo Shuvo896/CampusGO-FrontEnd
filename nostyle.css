@@ -33,6 +33,30 @@ body {
     font-style: normal;
 }
 
+.notices {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.notice-card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.notice-date {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+
+.notice-content {
+    line-height: 1.6;
+}
+
 nav {
     /* background-color: #ffffffb4; */
     padding: 1.5em;
