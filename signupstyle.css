@@ -8,6 +8,12 @@
     --base-color2: #47A34B;
 }
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: sans-serif;
     background-color: #F0F2F5;
@@ -16,48 +22,49 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    padding: 20px;
 }
-body div img {
+
+.signup-container {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 10px;
+    background-image: linear-gradient(20deg, rgb(32, 32, 37) 30%, rgb(62, 62, 71));
+    box-shadow: 0 0 20px #ffffff;
+    text-align: center;
+    width: 35em;
+    max-width: 800px;
+    position: relative;
+    margin: 20px 0;
+}
+
+.signup-container img {
     height: 70px;
-    padding-bottom: 1em;
+    margin-bottom: 1em;
+    max-width: 100%;
 }
-.login{
-    
-    padding: 1.5rem;
-    padding-bottom: 3em;
+
+.login {
+    padding: 1.5rem 0;
 }
+
 .login a {
     color: #ffffff;
     text-decoration: none;
-}
-.signup-container {
-    background-color: #ffffff;
-    padding: 5rem;
-    padding-right: 2rem;
-    padding-left: 2rem;
-    border-radius: 10px;
-    background-image:
-        linear-gradient(20deg, rgb(32, 32, 37) 30%, rgb(62, 62, 71));
-    box-shadow: 0 0 20px #ffffff;
-    backdrop-filter: blur(10px);
-    text-align: center;
-    width: 30em;
 }
 
 .signup-container .forgot {
     text-decoration: none;
     color: #ffffff;
-    font-size: 1.2em;
-
+    font-size: 1em;
 }
 
 .signup-container .back-button {
     position: absolute;
-    top: 1.5rem;
-    left: 1.5rem;
+    top: 1rem;
+    left: 1rem;
     font-size: 1.5rem;
     color: #ffffff;
-    /* background-color: rgba(0, 0, 0, 0.4); */
     padding: 0.4rem 0.7rem;
     border-radius: 17%;
     text-decoration: none;
@@ -72,12 +79,14 @@ body div img {
 .signup-container h2 {
     color: #ffffff;
     margin-bottom: 1.5rem;
+    font-size: 1.8rem;
 }
 
 .form-row {
     display: flex;
     gap: 10px;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .form-group {
@@ -85,33 +94,38 @@ body div img {
     display: flex;
     flex-direction: column;
     padding: 0.5em;
+    min-width: 200px;
 }
+
 .signup-container label {
     padding-bottom: 0.4em;
     color: #ffffff;
+    text-align: left;
 }
+
 .signup-container input,
 .signup-container select {
     width: 100%;
     padding: 0.75rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     border: 1px solid var(--selection-color);
     border-radius: 5px;
-    box-sizing: border-box;
     background-color: #ffffff80;
     color: #000000;
+    font-size: 1rem;
 }
 
 .signup-container button {
     background-color: var(--tap-color);
     color: #ffffff;
-    padding: 0.75rem ;
+    padding: 0.75rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-top: 2em;
-    width: 35em;
-    
+    margin-top: 1em;
+    width: 100%;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
 }
 
 .signup-container button:hover {
@@ -125,39 +139,55 @@ body div img {
     text-align: left;
 }
 
+/* Responsive adjustments */
 @media (max-width: 768px) {
     .signup-container {
-        width: 18em;
-        padding: 1.5rem;
-        padding-top: 2em;
+        padding: 2rem 1.5rem;
     }
-
-    body div img {
-        height: 70px;
-    }
-    .form-row {
-        flex-direction: column;
-    }
-
+    
     .form-group {
-        padding: 0.3em;
+        min-width: 100%;
     }
-
+    
     .signup-container h2 {
         font-size: 1.5rem;
     }
-
+    
     .signup-container input,
     .signup-container select {
         padding: 0.65rem;
     }
+}
 
-    .signup-container button {
-        padding: 0.65rem 1rem;
-        width: 20.8em;
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
     }
-
+    
+    .signup-container {
+        padding: 1.5rem 1rem;
+    }
+    
+    .signup-container img {
+        height: 60px;
+    }
+    
+    .signup-container h2 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .signup-container .back-button {
+        top: 0.5rem;
+        left: 0.5rem;
+        font-size: 1.2rem;
+    }
+    
     .login {
         padding: 1rem 0;
+    }
+    
+    .signup-container .forgot {
+        font-size: 0.9em;
     }
 }
