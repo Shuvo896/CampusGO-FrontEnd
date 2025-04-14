@@ -162,9 +162,9 @@
                 <select id="from">
                     <option value="all">FROM (ALL)</option>
                     <option value="DSC">DSC</option>
-                    <option value="mirpur">Mirpur</option>
-                    <option value="dhanmondi">dhanmondi</option>
-                    <option value="uttara">Uttara</option>
+                    <option value="Mirpur">Mirpur</option>
+                    <option value="Dhanmondi">Dhanmondi</option>
+                    <option value="Uttara">Uttara</option>
                 </select>
             </div>
 
@@ -172,18 +172,18 @@
                 <select id="to">
                     <option value="all">TO (ALL)</option>
                     <option value="DSC">DSC</option>
-                    <option value="mirpur">Mirpur</option>
-                    <option value="dhanmondi">dhanmondi</option>
-                    <option value="uttara">Uttara</option>
+                    <option value="Mirpur">Mirpur</option>
+                    <option value="Dhanmondi">Dhanmondi</option>
+                    <option value="Uttara">Uttara</option>
                 </select>
             </div>
 
             <div class="time">
                 <select id="time">
                     <option value="all">TIME (ALL)</option>
-                    <option value="08:00 AM">08:00 AM</option>
-                    <option value="09:00 AM">09:00 AM</option>
-                    <option value="10:00 AM">10:00 AM</option>
+                    <option value="8">8:00 AM</option>
+                    <option value="9">9:00 AM</option>
+                    <option value="10">10:00 AM</option>
                 </select>
             </div>
             <button class="filter-out">Filter</button>
@@ -258,7 +258,7 @@
                         <option value="">Select Location</option>
                         <option value="DSC">DSC</option>
                         <option value="Mirpur">Mirpur</option>
-                        <option value="dhanmondi">dhanmondi</option>
+                        <option value="Dhanmondi">Dhanmondi</option>
                         <option value="Uttara">Uttara</option>
                     </select>
                 </div>
@@ -269,16 +269,20 @@
                         <option value="">Select Location</option>
                         <option value="DSC">DSC</option>
                         <option value="Mirpur">Mirpur</option>
-                        <option value="dhanmondi">dhanmondi</option>
+                        <option value="Dhanmondi">Dhanmondi</option>
                         <option value="Uttara">Uttara</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="departureTime">Departure Time</label>
-                    <input type="time" id="departureTime" required>
+                    <select id="departureTime" required>
+                        <option value="">Select Time</option>
+                        <option value="8">8:00 AM</option>
+                        <option value="9">9:00 AM</option>
+                        <option value="10">10:00 AM</option>
+                    </select>
                 </div>
-
                 <div class="form-group">
                     <label for="capacity">Capacity</label>
                     <input type="number" id="capacity" min="1" value="40" required>

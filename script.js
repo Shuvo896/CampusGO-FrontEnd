@@ -24,6 +24,117 @@ function formatDate(date) {
 updateDate();
 setInterval(updateDate, 60000);
 
+// Bus payment and token system in index
+document.addEventListener('DOMContentLoaded', function () {
+    const scheduleData = loadBusSchedule();
+    displayAvailableBuses(scheduleData);
+    setupPaymentModal();
+
+    function loadBusSchedule() {
+        const data = localStorage.getItem('busSchedule');
+        return data ? JSON.parse(data) : [];
+    }
+
+    function displayAvailableBuses(busList) {
+        const listContainer = document.querySelector('.bus-container');
+        listContainer.innerHTML = busList.length
+            ? busList.map(buildBusCard).join('')
+            : '<div class="no-buses">No buses available</div>';
+
+        document.querySelectorAll('.purchase-btn').forEach(button => {
+            button.addEventListener('click', openPaymentModal);
+        });
+    }
+
+    function buildBusCard(bus) {
+        const isFull = (bus.passengers / bus.capacity) >= 1;
+        const price = bus.price ?? 50;
+
+        return `
+            <div class="available-bus-card">
+                <div class="available-header">
+                    <span class="available-number">${bus.number}</span>
+                    <span class="available-status ${isFull ? 'status-full' : 'status-ok'}">
+                        ${isFull ? 'FULL' : 'AVAILABLE'}
+                    </span>
+                </div>
+                <div class="available-driver">Driver: ${bus.driver}</div>
+                <div class="available-route">
+                    <div class="available-location">
+                        <span class="dot"></span>
+                        <span>From: ${bus.from}</span>
+                    </div>
+                    <div class="available-location">
+                        <span class="dot"></span>
+                        <span>To: ${bus.to}</span>
+                    </div>
+                    <div class="available-time">Departure: ${bus.time}</div>
+                </div>
+                <div class="available-footer">
+                    <div class="available-price">৳ ${price}</div>
+                    <button class="purchase-btn">Purchase</button>
+                </div>
+            </div>
+        `;
+    }
+
+    function setupPaymentModal() {
+        const modal = document.createElement('div');
+        modal.classList.add('payment-modal');
+        modal.innerHTML = `
+            <div class="modal-content">
+                <h2>Select Payment Method</h2>
+                <select id="paymentMethod">
+                    <option value="card">Card</option>
+                    <option value="mobile">Mobile Bank</option>
+                    <option value="1card">1Card</option>
+                </select>
+                <button id="proceedPayment">Proceed</button>
+                <button id="closeModal">Cancel</button>
+            </div>
+            <div class="qr-section" style="display: none;">
+                <h3>Your Ticket Token</h3>
+                <canvas id="qrCanvas"></canvas>
+                <p id="tokenInfo"></p>
+                <button id="closeQR">Done</button>
+            </div>
+        `;
+        document.body.appendChild(modal);
+
+        modal.querySelector('#proceedPayment').onclick = handleFakePayment;
+        modal.querySelector('#closeModal').onclick = () => modal.classList.remove('show');
+        modal.querySelector('#closeQR').onclick = () => modal.classList.remove('show');
+    }
+
+    function openPaymentModal() {
+        const modal = document.querySelector('.payment-modal');
+        modal.classList.add('show');
+        modal.querySelector('.modal-content').style.display = 'block';
+        modal.querySelector('.qr-section').style.display = 'none';
+    }
+
+    function handleFakePayment() {
+        const modal = document.querySelector('.payment-modal');
+        const token = Math.floor(Math.random() * 40) + 1;
+        const message = `Your token number is: ${token}`;
+    
+        modal.querySelector('.modal-content').style.display = 'none';
+        modal.querySelector('.qr-section').style.display = 'block';
+    
+        const canvas = document.getElementById('qrCanvas');
+        const qr = new QRious({
+            element: canvas,
+            value: message,
+            size: 200,
+            background: 'white',
+            foreground: 'black'
+        });
+    
+        document.getElementById('tokenInfo').textContent = 'Scan the QR to get your token.';
+    }
+    
+});
+
 
 // Main Application Controller
 document.addEventListener('DOMContentLoaded', function () {
@@ -151,7 +262,7 @@ function initBusSystem() {
 
         //     }
         // }
-        
+
         function openBusModal(busId = null) {
             try {
                 const modal = document.getElementById('busModal');
@@ -230,35 +341,6 @@ function initBusSystem() {
             }
         }
 
-        // function convertTo12Hour(time24) {
-        //     try {
-        //         if (!time24) return '';
-        //         const [hours, minutes] = time24.split(':');
-        //         const period = hours >= 12 ? 'PM' : 'AM';
-        //         const hours12 = hours % 12 || 12;
-        //         return `${hours12}:${minutes} ${period}`;
-        //     } catch (error) {
-        //         console.error('Time conversion error:', error);
-        //         return time24;
-        //     }
-        // }
-
-        // function convertTo24Hour(time12) {
-        //     try {
-        //         if (!time12) return '';
-        //         const [time, period] = time12.split(' ');
-        //         let [hours, minutes] = time.split(':');
-
-        //         if (period === 'PM' && hours !== '12') hours = parseInt(hours) + 12;
-        //         if (period === 'AM' && hours === '12') hours = '00';
-
-        //         return `${hours}:${minutes}`;
-        //     } catch (error) {
-        //         console.error('Time conversion error:', error);
-        //         return time12;
-        //     }
-        // }
-
         function saveBuses() {
             try {
                 localStorage.setItem('busSchedule', JSON.stringify(buses));
@@ -332,14 +414,16 @@ function initBusSystem() {
 
         function filterBuses() {
             try {
-                const from = document.getElementById('from')?.value.toLowerCase() || 'all';
-                const to = document.getElementById('to')?.value.toLowerCase() || 'all';
+                const from = document.getElementById('from')?.value || 'all';
+                const to = document.getElementById('to')?.value || 'all';
                 const time = document.getElementById('time')?.value || 'all';
 
                 const filtered = buses.filter(bus => {
-                    return (from === 'all' || bus.from.toLowerCase().includes(from)) &&
-                        (to === 'all' || bus.to.toLowerCase().includes(to)) &&
-                        (time === 'all' || bus.toLowerCase().includes(to));
+                    const fromMatch = from === 'all' || bus.from === from;
+                    const toMatch = to === 'all' || bus.to === to;
+                    const timeMatch = time === 'all' || bus.time === time;
+
+                    return fromMatch && toMatch && timeMatch;
                 });
 
                 renderBuses(filtered);
@@ -475,7 +559,7 @@ function initNoticeSystem() {
 
                 const tabBtn = document.querySelector(`[data-tab="${tabId}"]`);
                 const tabContent = document.getElementById(`${tabId}-tab`);
-                
+
                 if (tabBtn) tabBtn.classList.add('active');
                 if (tabContent) tabContent.classList.add('active');
             } catch (error) {
@@ -506,3 +590,25 @@ function renderNoticesOnNoticePage() {
         console.error('Error rendering notices:', error);
     }
 }
+
+// Get the search button and results section
+const searchBtn = document.querySelector('.search');
+const searchResults = document.getElementById('searchResults');
+
+// Add click event to search button
+searchBtn.addEventListener('click', function () {
+    // Get the selected values
+    const from = document.getElementById('from').value;
+    const to = document.getElementById('to').value;
+    const time = document.getElementById('time').value;
+
+    // Here you would normally make an API call or filter your data
+    // For now, we'll just show the results section
+    searchResults.style.display = 'block';
+
+    // Scroll to results
+    searchResults.scrollIntoView({ behavior: 'smooth' });
+
+    // In a real app, you would populate the bus-list with actual results
+    // based on the from, to, and time values
+});
