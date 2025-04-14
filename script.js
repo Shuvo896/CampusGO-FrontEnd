@@ -107,21 +107,6 @@ function initBusSystem() {
 
         function getSampleBuses() {
             return [
-                {
-                    id: '1', number: 'DIU-101', driver: 'Joynal Islam',
-                    from: 'Mirpur', to: 'Uttara', time: '08:00 AM',
-                    capacity: 40, passengers: 32
-                },
-                {
-                    id: '2', number: 'DIU-102', driver: 'Taher Mia',
-                    from: 'Dhanmondi', to: 'Mirpur', time: '09:00 AM',
-                    capacity: 40, passengers: 28
-                },
-                {
-                    id: '3', number: 'DIU-103', driver: 'Raju hasnan',
-                    from: 'Uttara', to: 'Dhanmondi', time: '10:00 AM',
-                    capacity: 40, passengers: 35
-                }
             ];
         }
 
@@ -161,6 +146,12 @@ function initBusSystem() {
             }
         }
 
+        // function addedBusList() {
+        //     try {
+
+        //     }
+        // }
+        
         function openBusModal(busId = null) {
             try {
                 const modal = document.getElementById('busModal');
@@ -192,7 +183,7 @@ function initBusSystem() {
                 document.getElementById('driverName').value = bus.driver;
                 document.getElementById('fromLocation').value = bus.from;
                 document.getElementById('toLocation').value = bus.to;
-                document.getElementById('departureTime').value = convertTo24Hour(bus.time);
+                document.getElementById('departureTime').value = bus.time;
                 document.getElementById('capacity').value = bus.capacity;
             } catch (error) {
                 console.error('Error populating bus form:', error);
@@ -219,7 +210,7 @@ function initBusSystem() {
                     driver: driverName,
                     from: fromLocation,
                     to: toLocation,
-                    time: convertTo12Hour(departureTime),
+                    time: departureTime,
                     capacity: parseInt(capacity),
                     passengers: Math.floor(Math.random() * capacity)
                 };
@@ -239,34 +230,34 @@ function initBusSystem() {
             }
         }
 
-        function convertTo12Hour(time24) {
-            try {
-                if (!time24) return '';
-                const [hours, minutes] = time24.split(':');
-                const period = hours >= 12 ? 'PM' : 'AM';
-                const hours12 = hours % 12 || 12;
-                return `${hours12}:${minutes} ${period}`;
-            } catch (error) {
-                console.error('Time conversion error:', error);
-                return time24;
-            }
-        }
+        // function convertTo12Hour(time24) {
+        //     try {
+        //         if (!time24) return '';
+        //         const [hours, minutes] = time24.split(':');
+        //         const period = hours >= 12 ? 'PM' : 'AM';
+        //         const hours12 = hours % 12 || 12;
+        //         return `${hours12}:${minutes} ${period}`;
+        //     } catch (error) {
+        //         console.error('Time conversion error:', error);
+        //         return time24;
+        //     }
+        // }
 
-        function convertTo24Hour(time12) {
-            try {
-                if (!time12) return '';
-                const [time, period] = time12.split(' ');
-                let [hours, minutes] = time.split(':');
+        // function convertTo24Hour(time12) {
+        //     try {
+        //         if (!time12) return '';
+        //         const [time, period] = time12.split(' ');
+        //         let [hours, minutes] = time.split(':');
 
-                if (period === 'PM' && hours !== '12') hours = parseInt(hours) + 12;
-                if (period === 'AM' && hours === '12') hours = '00';
+        //         if (period === 'PM' && hours !== '12') hours = parseInt(hours) + 12;
+        //         if (period === 'AM' && hours === '12') hours = '00';
 
-                return `${hours}:${minutes}`;
-            } catch (error) {
-                console.error('Time conversion error:', error);
-                return time12;
-            }
-        }
+        //         return `${hours}:${minutes}`;
+        //     } catch (error) {
+        //         console.error('Time conversion error:', error);
+        //         return time12;
+        //     }
+        // }
 
         function saveBuses() {
             try {
@@ -348,7 +339,7 @@ function initBusSystem() {
                 const filtered = buses.filter(bus => {
                     return (from === 'all' || bus.from.toLowerCase().includes(from)) &&
                         (to === 'all' || bus.to.toLowerCase().includes(to)) &&
-                        (time === 'all' || bus.time === time);
+                        (time === 'all' || bus.toLowerCase().includes(to));
                 });
 
                 renderBuses(filtered);
