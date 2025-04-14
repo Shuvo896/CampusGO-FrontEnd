@@ -212,7 +212,7 @@ main {
         "bus-lists";
     gap: 1.5rem;
     padding: 1.5rem;
-    margin-left: 20px;
+    /* margin-left: 20px; */
     /* Prevent overlap with sidebar */
 }
 
@@ -267,7 +267,7 @@ main .filter {
     padding: 1rem;
     background: white;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 5px #0000000d;
 }
 
 main .filter select {
@@ -679,7 +679,6 @@ main .bus-lists {
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
     text-overflow: ellipsis;
 }
 
@@ -737,6 +736,7 @@ footer {
 /* ---------- Responsive ---------- */
 
 @media (max-width: 768px) {
+
     nav {
         top: 60px;
     }
@@ -755,27 +755,47 @@ footer {
     }
 
     body {
-        grid-template-columns: 1px 1fr 1px;
+        grid-template-columns: 0.5px 1fr 0.5px;
     }
+
+    main  {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     main .filter {
-        width: 23em;
+        display: flex;
+        flex-direction: column;
+        width: 72%;
+        padding-top: 2rem;
     }
+
+    main .filter select {
+        width: 15rem;
+    }
+
     main .belt-section {
         display: flex;
         flex-direction: column;
-        width: 23em;
+        width: 20em;
     }
+
     .bus-card {
         height: 12em;
-        width: 19em;
+        width: 15em;
         padding: 1.5rem;
     }
 
-    footer {
-        grid-area: footer;
-        font-size: 0.6rem;
+    main .bus-lists {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-
+    footer {
+        font-size: 0.8rem;
+        text-align: center;
+    }
 }
 
 @media (min-width: 769px) {
