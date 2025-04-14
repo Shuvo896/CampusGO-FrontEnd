@@ -8,6 +8,10 @@
     --base-color2: #47A34B;
 }
 
+body div img {
+    height: 2.5rem;
+}
+
 body {
     font-family: sans-serif;
     background-color: #F0F2F5;
@@ -49,7 +53,9 @@ body {
 
 .login-container h2 {
     color: #ffffff;
+    padding-top: 1.2rem;
     padding-bottom: 4rem;
+    margin: 0;
     /* margin-bottom: 1.5rem; */
 }
 
