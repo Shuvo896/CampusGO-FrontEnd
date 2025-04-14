@@ -108,18 +108,18 @@ function initBusSystem() {
         function getSampleBuses() {
             return [
                 {
-                    id: '1', number: 'DIU-101', driver: 'John Doe',
+                    id: '1', number: 'DIU-101', driver: 'Joynal Islam',
                     from: 'Mirpur', to: 'Uttara', time: '08:00 AM',
                     capacity: 40, passengers: 32
                 },
                 {
-                    id: '2', number: 'DIU-102', driver: 'Jane Smith',
-                    from: 'Dhanmundi', to: 'Mirpur', time: '09:00 AM',
+                    id: '2', number: 'DIU-102', driver: 'Taher Mia',
+                    from: 'Dhanmondi', to: 'Mirpur', time: '09:00 AM',
                     capacity: 40, passengers: 28
                 },
                 {
-                    id: '3', number: 'DIU-103', driver: 'Robert Johnson',
-                    from: 'Uttara', to: 'Dhanmundi', time: '10:00 AM',
+                    id: '3', number: 'DIU-103', driver: 'Raju hasnan',
+                    from: 'Uttara', to: 'Dhanmondi', time: '10:00 AM',
                     capacity: 40, passengers: 35
                 }
             ];
