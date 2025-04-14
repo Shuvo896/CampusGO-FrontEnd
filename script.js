@@ -70,24 +70,6 @@ function formatDate(dateString) {
     }
 }
 
-// ===== SIDEBAR =====
-function initSidebar() {
-    try {
-        const hamburger = document.getElementById('hamburger');
-        if (hamburger) {
-            hamburger.addEventListener('click', function () {
-                const sidebar = document.getElementById('sidebar');
-                if (sidebar) {
-                    sidebar.classList.toggle('active');
-                    hamburger.classList.toggle('active');
-                }
-            });
-        }
-    } catch (error) {
-        console.error('Sidebar initialization error:', error);
-    }
-}
-
 // ===== BUS MANAGEMENT SYSTEM =====
 function initBusSystem() {
     try {
