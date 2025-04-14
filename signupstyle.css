@@ -144,15 +144,15 @@ body {
     .signup-container {
         padding: 2rem 1.5rem;
     }
-    
+
     .form-group {
         min-width: 100%;
     }
-    
+
     .signup-container h2 {
         font-size: 1.5rem;
     }
-    
+
     .signup-container input,
     .signup-container select {
         padding: 0.65rem;
@@ -163,30 +163,30 @@ body {
     body {
         padding: 10px;
     }
-    
+
     .signup-container {
         padding: 1.5rem 1rem;
     }
-    
+
     .signup-container img {
         height: 60px;
     }
-    
+
     .signup-container h2 {
         font-size: 1.3rem;
         margin-bottom: 1rem;
     }
-    
+
     .signup-container .back-button {
         top: 0.5rem;
         left: 0.5rem;
         font-size: 1.2rem;
     }
-    
+
     .login {
         padding: 1rem 0;
     }
-    
+
     .signup-container .forgot {
         font-size: 0.9em;
     }

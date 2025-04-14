@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DIU Transport Dashboard</title>
+    <title>Transport Dashboard</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -50,44 +50,6 @@
     </nav>
     <!-- Navbar End -->
 
-    <!-- Body -->
-    <main>
-        <div class="booking">
-            <div class="showDate"></div>
-
-            <div class="from">
-                <select id="from">                 
-                    <option value="from">FROM</option>
-                    <option value="dsc">DSC</option>
-                    <option value="mirpur">Mirpur</option>
-                    <option value="dhanmundi">Dhanmundi</option>
-                    <option value="uttara">Uttara</option>
-                </select>
-            </div>
-        
-            <div class="to">
-                <select id="to">
-                    <option value="from">TO</option>
-                    <option value="dsc">DSC</option>
-                    <option value="mirpur">Mirpur</option>
-                    <option value="dhanmundi">Dhanmundi</option>
-                    <option value="uttara">Uttara</option>
-                </select>
-            </div>
-        
-            <div class="time">
-                <select id="time">
-                    <option value="from">TIME</option>
-                    <option value="dsc">08:00 AM</option>
-                    <option value="mirpur">09:00 AM</option>
-                    <option value="dhanmundi">10:00 AM</option>
-                </select>
-            </div>
-        </div>
-        <button class="search">SEARCH</button>
-    </main>
-    <!-- Body ending -->
-
     <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
         <header>
@@ -96,7 +58,7 @@
                     <img src="IMG/BUS.png" alt="">
                 </span>
                 <div class="header_text">
-                    <span class="header_title">UNI TRANSPORT</span>
+                    <span class="header_title">Easy Fast Fair</span>
                 </div>
             </div>
         </header>
@@ -159,15 +121,53 @@
         <span class="bar"></span>
         <span class="bar"></span>
     </div>
+    <!-- Hamburger icon End-->
+
+    <!-- Body -->
+    <main>
+        <div class="booking">
+            <div class="showDate"></div>
+
+            <div class="from">
+                <select id="from">
+                    <option value="from">FROM</option>
+                    <option value="dsc">DSC</option>
+                    <option value="mirpur">Mirpur</option>
+                    <option value="dhanmondi">Dhanmondi</option>
+                    <option value="uttara">Uttara</option>
+                </select>
+            </div>
+
+            <div class="to">
+                <select id="to">
+                    <option value="from">TO</option>
+                    <option value="dsc">DSC</option>
+                    <option value="mirpur">Mirpur</option>
+                    <option value="dhanmondi">Dhanmondi</option>
+                    <option value="uttara">Uttara</option>
+                </select>
+            </div>
+
+            <div class="time">
+                <select id="time">
+                    <option value="from">TIME</option>
+                    <option value="dsc">08:00 AM</option>
+                    <option value="mirpur">09:00 AM</option>
+                    <option value="dhanmondi">10:00 AM</option>
+                </select>
+            </div>
+        </div>
+        <button class="search">SEARCH</button>
+    </main>
+    <!-- Body ending -->
+
     <!-- Footer Making -->
     <footer>
         <p>© 2025 Eclipse. All rights reserved.</p>
     </footer>
-    
     <!-- Footer End -->
-    <script src="script.js">
 
-    </script>
+    <script src="script.js"></script>
 
 </body>
 
