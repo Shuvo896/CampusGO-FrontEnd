@@ -27,12 +27,32 @@ setInterval(updateDate, 60000);
 // Bus payment and token system in index
 document.addEventListener('DOMContentLoaded', function () {
     const scheduleData = loadBusSchedule();
-    displayAvailableBuses(scheduleData);
+    displayAvailableBuses([]);
     setupPaymentModal();
 
     function loadBusSchedule() {
         const data = localStorage.getItem('busSchedule');
         return data ? JSON.parse(data) : [];
+    }
+
+    document.querySelector('.search-out').addEventListener('click', function () {
+        const fromValue = document.getElementById('from').value;
+        const toValue = document.getElementById('to').value;
+        const timeValue = document.getElementById('time').value;
+
+        const scheduleData = loadBusSchedule();
+        const filteredBuses = filterBuses(scheduleData, fromValue, toValue, timeValue);
+        displayAvailableBuses(filteredBuses);
+    });
+
+    function filterBuses(buses, from, to, time) {
+        return buses.filter(bus => {
+            const fromMatch = from === 'from' || bus.from.toLowerCase() === from.toLowerCase();
+            const toMatch = to === 'to' || bus.to.toLowerCase() === to.toLowerCase();
+            const timeMatch = time === 'time' || bus.time.toLowerCase() === time.toLowerCase();
+
+            return fromMatch && toMatch && timeMatch;
+        });
     }
 
     function displayAvailableBuses(busList) {
@@ -68,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         <span class="dot"></span>
                         <span>To: ${bus.to}</span>
                     </div>
-                    <div class="available-time">Departure: ${bus.time}</div>
+                    <div class="available-time">Departure: ${bus.time}:00 AM</div>
                 </div>
                 <div class="available-footer">
                     <div class="available-price">৳ ${price}</div>
@@ -117,10 +137,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const modal = document.querySelector('.payment-modal');
         const token = Math.floor(Math.random() * 40) + 1;
         const message = `Your token number is: ${token}`;
-    
+
         modal.querySelector('.modal-content').style.display = 'none';
         modal.querySelector('.qr-section').style.display = 'block';
-    
+
         const canvas = document.getElementById('qrCanvas');
         const qr = new QRious({
             element: canvas,
@@ -129,12 +149,12 @@ document.addEventListener('DOMContentLoaded', function () {
             background: 'white',
             foreground: 'black'
         });
-    
+
         document.getElementById('tokenInfo').textContent = 'Scan the QR to get your token.';
     }
-    
-});
 
+});
+//bus payment ended
 
 // Main Application Controller
 document.addEventListener('DOMContentLoaded', function () {
@@ -385,7 +405,7 @@ function initBusSystem() {
                             <div class="route">
                                 <span class="dot"></span>
                                 <span>${bus.from}</span>
-                                <span class="route-time">${bus.time}</span>
+                                <span class="route-time">${bus.time}:00 AM</span>
                             </div>
                             <div class="route">
                                 <span class="dot"></span>
