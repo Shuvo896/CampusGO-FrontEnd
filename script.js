@@ -285,9 +285,6 @@ function initBusSystem() {
                     busesToRender.map(createBusCard).join('') :
                     '<div class="no-buses">No buses found</div>';
 
-                container.querySelectorAll('.edit-btn').forEach(btn => {
-                    btn.addEventListener('click', (e) => openBusModal(e.target.dataset.id));
-                });
 
                 container.querySelectorAll('.delete-btn').forEach(btn => {
                     btn.addEventListener('click', (e) => deleteBus(e.target.dataset.id));
@@ -324,7 +321,6 @@ function initBusSystem() {
                         </div>
                         
                         <div class="bus-actions">
-                            <button class="edit-btn" data-id="${bus.id}">Edit</button>
                             <button class="delete-btn" data-id="${bus.id}">Delete</button>
                         </div>
                     </div>

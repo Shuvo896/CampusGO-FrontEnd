@@ -388,7 +388,7 @@ main .bus-lists {
 
 .bus-actions button {
     padding: 0.5rem 1rem;
-    background-color: var(--base-color2);
+    background-color: #ff4d4d;
     color: white;
     border: none;
     border-radius: 4px;
