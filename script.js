@@ -6,7 +6,6 @@ function toggleSidebar() {
     hamburger.classList.toggle('active');
 }
 
-
 // Functional Date section
 function updateDate() {
     const dateSpan = document.querySelector('.showDate');
@@ -67,6 +66,23 @@ function formatDate(dateString) {
     } catch (error) {
         console.error('Date formatting error:', error);
         return dateString; // Return original if formatting fails
+    }
+}
+
+// SIDEBAR TOGGLE HANDLER
+function initSidebar() {
+    try {
+        const hamburger = document.getElementById('hamburger');
+        const sidebar = document.getElementById('sidebar');
+
+        if (!hamburger || !sidebar) return;
+
+        hamburger.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+    } catch (error) {
+        console.error('Sidebar initialization error:', error);
     }
 }
 
