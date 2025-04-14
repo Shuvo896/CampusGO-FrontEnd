@@ -229,11 +229,13 @@ footer {
 
     body {
         grid-template-columns: 1px 1fr 1px;
+        grid-template-rows: 117px 1fr 6rem;
     }
 
     footer {
         grid-area: footer;
-        font-size: 0.6rem;
+        font-size: 0.8rem;
+        text-align: center;
     }
 
 }

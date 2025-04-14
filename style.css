@@ -16,6 +16,7 @@
   --base-color1: #63B967;
   --base-color2: #47A34B;
 }
+
 /* Body section */
 body {
   display: grid;
@@ -326,6 +327,7 @@ footer {
 
   body {
     grid-template-columns: 1px 1fr 1px;
+    grid-template-rows: 117px 1fr 6rem;
   }
 
   main {
@@ -334,7 +336,7 @@ footer {
     grid-template-areas:
       "booking"
       "Search";
-      padding-top: 3rem;
+    padding-top: 3rem;
   }
 
   .booking {

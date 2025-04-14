@@ -756,9 +756,10 @@ footer {
 
     body {
         grid-template-columns: 0.5px 1fr 0.5px;
+        grid-template-rows: 117px 1fr 6rem;
     }
 
-    main  {
+    main {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -792,6 +793,7 @@ footer {
         flex-direction: column;
         align-items: center;
     }
+
     footer {
         font-size: 0.8rem;
         text-align: center;
