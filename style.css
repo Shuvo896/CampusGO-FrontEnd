@@ -287,6 +287,7 @@ main .search {
 main .search:hover {
   background-image: linear-gradient(#ffffff, #ffffff);
   color: #61c266;
+  border: 1px solid #61c266;
 }
 
 
