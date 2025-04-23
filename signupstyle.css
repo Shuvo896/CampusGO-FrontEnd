@@ -97,6 +97,11 @@ body {
     min-width: 200px;
 }
 
+button a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
 .signup-container label {
     padding-bottom: 0.4em;
     color: #ffffff;
